@@ -1,12 +1,10 @@
 /* 
  * Viewport.h
  */
-#ifndef VIEWPORT_H__
-#define VIEWPORT_H__
+#ifndef VIEWPORT_H
+#define VIEWPORT_H
 
 #include <complex>
-
-using std::complex;
 
 namespace shimrod {
 
@@ -31,11 +29,11 @@ namespace shimrod {
   };
 
   /* projections screen -> space */
-    complex<double>
-    linear_projection(const int x, const int y,
-		      const Viewport<int>& screen,
-		      const Viewport<double>& space,
-		      const complex<double> accumulator_complex);
+  std::complex<double>
+  linear_projection(const int x, const int y,
+		    const Viewport<int>& screen,
+		    const Viewport<double>& space,
+		    const std::complex<double> accumulator_complex);
 } //namespace shimrod
 
-#endif // VIEWPORT_H__
+#endif // VIEWPORT_H

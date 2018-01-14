@@ -2,8 +2,11 @@
  * Viewport.cc
  */
 
+#include <complex>
+
 #include "include/Viewport.h"
 
+using std::complex;
 
 namespace shimrod {
   complex<double>

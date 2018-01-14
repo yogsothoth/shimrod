@@ -2,7 +2,23 @@
  * Image.cc
 */
 
+#include <tuple>
+#include <vector>
+#include <string>
+#include <iostream>
+#include "Magick++-no-warn.h"
+
+#include "Viewport.h"
 #include "include/Image.h"
+
+using Magick::Color;
+using Magick::Quantum;
+using Magick::Geometry;
+using Magick::Image;
+
+using std::tuple;
+using std::vector;
+using std::string;
 
 namespace shimrod {
   int rgba_red(const rgba_colour& c) { return std::get<0>(c); }
@@ -15,9 +31,9 @@ namespace shimrod {
     double t = (double)n/(double)iter_max;
 
     // Use smooth polynomials for r, g, b
-    int r = (int)(9*(1-t)*t*t*t*QuantumRange);
-    int g = (int)(15*(1-t)*(1-t)*t*t*QuantumRange);
-    int b =  (int)(8.5*(1-t)*(1-t)*(1-t)*t*QuantumRange);	
+     int r = (int)(9*(1-t)*t*t*t*QuantumRange);
+     int g = (int)(15*(1-t)*(1-t)*t*t*QuantumRange);
+     int b =  (int)(8.5*(1-t)*(1-t)*(1-t)*t*QuantumRange);
 
     return rgba_colour(r, g, b, 0);
   }
@@ -35,11 +51,11 @@ namespace shimrod {
 
       for(auto& x : y) {
 	image.pixelColor(ix, iy,
-			 Color(rgba_red(x),
-			       rgba_green(x),
-			       rgba_blue(x),
-			       rgba_alpha(x)));
-	//	image.pixelColor(ix, iy, Color(std::get<0>(x), std::get<1>(x), std::get<2>(x), 0));
+			  Color(rgba_red(x),
+			        rgba_green(x),
+			        rgba_blue(x),
+			        rgba_alpha(x)));
+
 	++ix;
       }
       ++iy;

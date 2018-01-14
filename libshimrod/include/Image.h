@@ -2,23 +2,15 @@
  * Image.h
  */
 
-#ifndef IMAGE_H__
-#define IMAGE_H__
+#ifndef IMAGE_H
+#define IMAGE_H
 
 #include <tuple>
 #include <vector>
 #include <string>
-#include <Magick++.h>
+
+#include "Magick++-no-warn.h"
 #include "Viewport.h"
-
-using Magick::Color;
-using Magick::Quantum;
-using Magick::Geometry;
-using Magick::Image;
-
-using std::tuple;
-using std::vector;
-using std::string;
 
 namespace shimrod {
 using rgba_colour = std::tuple<int, int, int, int>;
@@ -31,10 +23,10 @@ using rgba_colour = std::tuple<int, int, int, int>;
  rgba_colour convert_to_rgb_smooth(int n, int iter_max);
 
   void
-  write_image(const vector<vector<rgba_colour>> pixels,
-	      const Viewport<int>& screen,
-	      string filename);
+  write_image(const std::vector<std::vector<rgba_colour>> pixels,
+	      const shimrod::Viewport<int>& screen,
+	      std::string filename);
 } // namespace shimrod
 
 
-#endif
+#endif // IMAGE_H
