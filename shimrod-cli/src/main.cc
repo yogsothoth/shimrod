@@ -181,7 +181,7 @@ main(int argc, char **argv) {
     if(! fs::exists(p)) {
       std::error_code ec;
       if(! fs::create_directories(p, ec)) {
-	  std::cerr << "Error creating the output directory: the path " << p.string() << " could not be created. Reason: " << ec.message() << "." << endl;
+	  LOG(FATAL) << "Error creating the output directory: the path " << p.string() << " could not be created. Reason: " << ec.message() << "." << endl;
 	  exit(1);
 	}
     }
@@ -229,6 +229,7 @@ main(int argc, char **argv) {
   
   while(i < number_pics) {
     unsigned long num_useful_threads = std::min((unsigned long)number_pics - i, num_threads);
+    num_useful_threads = 4;
     
     vector<std::thread> threads;
     unsigned long j;
