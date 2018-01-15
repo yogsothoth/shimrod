@@ -229,7 +229,7 @@ main(int argc, char **argv) {
   
   while(i < number_pics) {
     unsigned long num_useful_threads = std::min((unsigned long)number_pics - i, num_threads);
-    num_useful_threads = 4;
+
     
     vector<std::thread> threads;
     unsigned long j;
