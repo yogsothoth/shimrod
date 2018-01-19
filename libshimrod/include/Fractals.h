@@ -11,30 +11,27 @@
 #include "Viewport.h"
 #include "Image.h"
 
-using std::vector;
-using std::complex;
-
 namespace shimrod {
 
-  vector<vector<rgba_colour>>
+  std::vector<std::vector<rgba_colour>>
   mandelbrot(const Viewport<int>& screen,
 	     const Viewport<double>& space,
 	     const int max_iterations,
-	     vector<complex<double>(*)(const int, const int,
+	     std::vector<std::complex<double>(*)(const int, const int,
 				       const Viewport<int>&,
 				       const Viewport<double>&,
-				       const complex<double>)>& projections);
+						 const std::complex<double>)>& projections);
 
 
-  vector<vector<rgba_colour>>
+  std::vector<vector<rgba_colour>>
   julia(const Viewport<int>& screen,
 	const Viewport<double>& space,
 	const int max_iterations,
-	vector<complex<double>(*)(const int, const int,
+	std::vector<complex<double>(*)(const int, const int,
 				  const Viewport<int>&,
 				  const Viewport<double>&,
-				  const complex<double>)>& projections,
-	complex<double> k);
+				       const std::complex<double>)>& projections,
+	std::complex<double> k);
 
 
 } // namespace shimrod

@@ -12,6 +12,9 @@ namespace shimrod {
   class Viewport {
     T _x_min, _x_max, _y_min, _y_max;
 
+    // no default constructor
+    Viewport() = delete;
+
   public:
     Viewport(T x_min, T x_max, T y_min, T y_max)
       : _x_min(x_min), _x_max(x_max), _y_min(y_min), _y_max(y_max)
@@ -25,7 +28,7 @@ namespace shimrod {
     T height() const { return _y_max - _y_min; }
     T width() const { return _x_max - _x_min; }
     T size() const { return height() * width(); }
-    
+
   };
 
   /* projections screen -> space */
